@@ -1,0 +1,32 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model contratos {
+  cliente        String    @id @db.VarChar(100)
+  cliente_logo   Bytes?    @db.Blob
+  treinamentos   Int?
+  prazo          DateTime? @db.Date
+  cliente_numero String?   @db.VarChar(3)
+  cliente_senha  String    @db.VarChar(12)
+}
+
+model relatorio {
+  cliente String   @id @db.VarChar(100)
+  aluno   Int
+  data    DateTime @db.Date
+  duracao String?  @db.VarChar(100)
+  nota    Float    @db.Float
+}
+
+model usuarios {
+  usuario  String  @id @db.VarChar(200)
+  senha    String  @db.VarChar(12)
+  cargo    String  @db.VarChar(20)
+  clientes String? @db.Text
+}

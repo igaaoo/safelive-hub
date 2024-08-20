@@ -1,0 +1,27 @@
+import { NextResponse } from "next/server";
+import { PrismaClient } from '@prisma/client';
+const prisma = new PrismaClient();
+import { validateToken } from "@/utils/jwtController";
+
+export async function GET(request: Request,) {
+  const token = request.headers.get('token') as string;
+
+
+  if (!token || !validateToken(token)) return NextResponse.json({ message: 'Não Autorizado!' }, { status: 401 });
+
+  try {
+    let clients = await prisma.contratos.findMany();
+
+    const clientsList = clients.map(client => client.cliente);
+
+
+    return NextResponse.json({ result: clientsList, clients }, { status: 200 });
+  } catch (err: any) {
+    console.log(err);
+    return NextResponse.json({ error: err.message }, { status: 500 });
+  } finally {
+    await prisma.$disconnect();
+  }
+
+
+}

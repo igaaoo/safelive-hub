@@ -1,0 +1,23 @@
+export type ProposalType = {
+  storeCode: string;
+  storeName: string;
+  clientCode: string;
+  clientName: string;
+  product: string;
+  model: string;
+  proposalStatus: string;
+  saleDate: string;
+  emission: string;
+  internet: string;
+  channel: string;
+  fullChassi: string;
+  seller: string;
+  saleValue: string;
+  clientType: string;
+  hadContact: string;
+  contactType: string;
+  saleStatus: string;
+  noSaleReason: string;
+  sellerParticipated: string;
+  observation: string;
+};
