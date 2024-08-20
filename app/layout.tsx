@@ -10,6 +10,7 @@ import AuthContextProvider from "@/context/AuthContextProvider";
 import DataContextProvider from "@/context/DataContextProvider";
 import type { Viewport } from 'next';
 import { Toaster } from "@/components/ui/toaster";
+import { Analytics } from "@vercel/analytics/react";
 
 
 
@@ -60,6 +61,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 <div className="relative flex min-h-screen flex-col">
                   <SiteHeader />
                   <div className="flex w-full p-0 md:px-12 lg:px-12">{children}</div>
+                  <Analytics />
                 </div>
               </ThemeProvider>
             </DataContextProvider>
