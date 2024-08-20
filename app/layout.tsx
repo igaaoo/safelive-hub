@@ -9,7 +9,6 @@ import { ThemeProvider } from "@/components/theme-provider";
 import AuthContextProvider from "@/context/AuthContextProvider";
 import DataContextProvider from "@/context/DataContextProvider";
 import type { Viewport } from 'next';
-import { AppBreadcrumb } from "@/components/AppBreadcrumb";
 import { Toaster } from "@/components/ui/toaster";
 
 
@@ -69,7 +68,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
 
 
           <footer >
-            <p className="text-center"><small>&copy; Copyright {currentYear} - Grupo Newland</small></p>
+            <p className="text-center"><small>&copy; Copyright {currentYear} - Safelive</small></p>
           </footer>
         </body>
       </html>

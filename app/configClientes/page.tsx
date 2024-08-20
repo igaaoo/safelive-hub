@@ -50,6 +50,7 @@ export default function IndexPage() {
 
   useEffect(() => {
     if (token) getClients();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token]);
 
   async function onSubmit(data: any) {

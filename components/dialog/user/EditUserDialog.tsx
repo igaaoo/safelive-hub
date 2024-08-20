@@ -50,6 +50,7 @@ export function EditUserDialog({ name, role, updateUsers, clients }: UserType & 
       .catch(err => {
         console.log(err);
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   async function onSubmit(data: any) {
