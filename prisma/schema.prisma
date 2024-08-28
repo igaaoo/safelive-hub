@@ -9,7 +9,7 @@ datasource db {
 
 model contratos {
   cliente        String    @id @db.VarChar(100)
-  cliente_logo   Bytes?    @db.Blob
+  cliente_logo   Bytes?
   treinamentos   Int?
   prazo          DateTime? @db.Date
   cliente_numero String?   @db.VarChar(3)
@@ -17,11 +17,12 @@ model contratos {
 }
 
 model relatorio {
-  cliente String   @id @db.VarChar(100)
+  cliente String?  @db.VarChar(100)
   aluno   Int
   data    DateTime @db.Date
   duracao String?  @db.VarChar(100)
   nota    Float    @db.Float
+  id      Int      @id @default(autoincrement())
 }
 
 model usuarios {

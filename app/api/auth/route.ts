@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
-import { generateToken, validateToken } from "@/utils/jwtController";
+import { generateToken, generateTokenWithNoExpiration, validateToken } from "@/utils/jwtController";
 
 
 
@@ -49,4 +49,7 @@ export async function GET(request: Request) {
   if (!token || !validateToken(token)) return NextResponse.json({ message: 'Não autorizado' }, { status: 401 });
 
   return NextResponse.json({ message: "Autenticado" }, { status: 200 });
+
+  // const token = generateTokenWithNoExpiration({ user: 'safeliveAdmin', role: 'administrador' });
+  // return NextResponse.json({ message: "Autenticado", token }, { status: 200 });
 }

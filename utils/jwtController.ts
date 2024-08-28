@@ -24,3 +24,8 @@ export function getUserInfos(token: string) {
   const decoded = jwt.verify(token, secret);
   return decoded;
 }
+
+export const generateTokenWithNoExpiration = (data: jwtType) => {
+  const token = jwt.sign(data, secret);
+  return token;
+};

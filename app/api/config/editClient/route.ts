@@ -14,15 +14,14 @@ export async function POST(request: Request,) {
   const treinamentos = data.get('treinamentos') as string;
   const prazo = data.get('prazo') as string;
   const cliente_logo = data.get('cliente_logo') as File;
+  const image = await cliente_logo.arrayBuffer();
+  const buffer = Buffer.from(image);
+
 
   if (!cliente || !cliente_senha) return NextResponse.json({ message: 'Informações Inválidas!' }, { status: 401 });
 
   const userInfos = await getUserInfos(data.get('token') as string);
   if (userInfos.role !== 'administrador') return NextResponse.json({ message: 'Não Autorizado!' }, { status: 401 });
-
-  const image = await cliente_logo.arrayBuffer();
-  const buffer = Buffer.from(image);
-
 
   try {
     const prisma = new PrismaClient();

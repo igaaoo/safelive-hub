@@ -53,8 +53,13 @@ export const clientsHeaders: ColumnDef<ClientsType>[] = [
     }
   },
   {
+    accessorKey: "cliente_senha",
+    header: () => null,
+    cell: () => null
+  },
+  {
     accessorKey: "actions",
     header: "Ações",
-    cell: ({ row }) => <EditClientDialog cliente_logo={row.getValue("cliente_logo")} treinamentos={row.getValue("treinamentos")} cliente={row.getValue("cliente")} cliente_numero={row.getValue("cliente_numero")} prazo={row.getValue("prazo")} />,
+    cell: ({ row }) => <EditClientDialog cliente_senha={row.getValue("cliente_senha")} cliente_logo={row.getValue("cliente_logo")} treinamentos={row.getValue("treinamentos")} cliente={row.getValue("cliente")} cliente_numero={row.getValue("cliente_numero")} prazo={row.getValue("prazo")} />,
   },
 ];

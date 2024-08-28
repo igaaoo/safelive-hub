@@ -2,7 +2,7 @@
 import axios from "axios";
 
 import { useAuthContext } from "@/context/AuthContext";
-import { SetStateAction, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { UserPlus2, Loader2 } from "lucide-react";
@@ -41,7 +41,8 @@ export default function IndexPage() {
   const [clients, setClients] = useState<ClientsType[]>([]);
   const [loading, setLoading] = useState(false);
 
-  const [file, setFile] = useState<File>();
+  const [selectedFile, setSelectedFile] = useState<File>();
+
 
   const { register, handleSubmit } = useForm({
     mode: 'onSubmit'
@@ -59,10 +60,15 @@ export default function IndexPage() {
 
     const formData = new FormData();
 
-    formData.append('cliente_logo', file as Blob);
-    for (let key in data) {
-      formData.append(key, data[key]);
-    }
+
+    formData.append('cliente', data.cliente);
+    formData.append('cliente_senha', data.cliente_senha);
+    formData.append('cliente_numero', data.cliente_numero);
+    formData.append('treinamentos', data.treinamentos);
+    formData.append('prazo', data.prazo);
+    formData.append('cliente_logo', selectedFile || '');
+    formData.append('token', data.token);
+    formData.append('user', data.user);
 
 
     axios.post('/api/config/editClient', formData).then(response => (
@@ -97,6 +103,12 @@ export default function IndexPage() {
       });
   }
 
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      setSelectedFile(e.target.files[0]);
+    }
+  };
+
 
   return (
     <section className="flex w-full justify-center">
@@ -125,11 +137,8 @@ export default function IndexPage() {
 
                     <Input id="prazo" {...register("prazo")} type="date" required />
 
-                    <Input id="cliente_logo" required {...register("cliente_logo")} type="file" accept="image/*"
-                      onChange={(e) => {
-                        setFile(e.target.files![0]);
-                      }
-                      }
+                    <Input id="cliente_logo" required {...register("cliente_logo")} type="file" accept="image/png"
+                      onChange={handleFileChange}
                     />
                   </div>
                 </div>
