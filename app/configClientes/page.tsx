@@ -129,9 +129,9 @@ export default function IndexPage() {
                   <div className="flex flex-col space-y-1.5">
                     <Input id="cliente" {...register("cliente")} placeholder="Cliente" required />
 
-                    <Input id="cliente_senha" {...register("cliente_senha")} type="password" required placeholder="Senha" />
+                    <Input id="cliente_senha" {...register("cliente_senha")} type="password" required placeholder="Senha / Max 12 Dígitos" maxLength={12} />
 
-                    <Input maxLength={3} id="cliente_numero" {...register("cliente_numero")} type="number" required placeholder="Número do Cliente" />
+                    <Input maxLength={3} id="cliente_numero" {...register("cliente_numero")} type="number" required placeholder="Número do Cliente / Max 3 Dígitos" />
 
                     <Input maxLength={3} id="treinamentos" {...register("treinamentos")} type="number" required placeholder="Treinamentos" />
 

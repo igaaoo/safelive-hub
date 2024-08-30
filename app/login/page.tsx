@@ -110,7 +110,7 @@ export default function IndexPage() {
               </div>
               <div className="flex flex-col space-y-1.5">
 
-                <Input id="password" placeholder="Senha" type="password" onChange={(e) => {
+                <Input id="password" placeholder="Senha" type="password" maxLength={12} onChange={(e) => {
                   setPassword(e.target.value);
                 }} />
 

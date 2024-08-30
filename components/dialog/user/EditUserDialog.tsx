@@ -106,7 +106,7 @@ export function EditUserDialog({ name, role, updateUsers, clients }: UserType & 
             </div>
 
             <div className="items-center gap-2">
-              <Label className="font-medium text-gray-700" htmlFor="password">Senha</Label>
+              <Label className="font-medium text-gray-700" htmlFor="password">Senha <span className="text-xs text-muted-foreground"> / Max 12 caracteres</span></Label>
               <Input type="password" id="password" {...register("password")} autoComplete="off" aria-autocomplete="none" />
             </div>
 

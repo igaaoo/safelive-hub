@@ -11,6 +11,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
 import { Input } from "@/components/ui/input";
 import { Loader2, UserPlus2 } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
+import { Label } from "@/components/ui/label";
 
 
 
@@ -93,9 +94,15 @@ export default function IndexPage() {
                 <div className="grid w-full items-center gap-4">
 
                   <div className="flex flex-col space-y-1.5">
-                    <Input id="user" {...register("user")} placeholder="Usuário" required />
+                    <div>
+                      <Label htmlFor="user">Usuário </Label>
+                      <Input id="user" {...register("user")} required />
+                    </div>
 
-                    <Input id="password" type="password" {...register("password")} placeholder="Senha" required />
+                    <div>
+                      <Label htmlFor="password">Senha <span className="text-xs text-muted-foreground"> / Max 12 caracteres</span></Label>
+                      <Input id="password" type="password" {...register("password")} required />
+                    </div>
                   </div>
                 </div>
                 <CardFooter className="mt-4 flex w-full justify-end p-0">
