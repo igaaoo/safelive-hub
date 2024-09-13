@@ -96,12 +96,12 @@ export default function IndexPage() {
                   <div className="flex flex-col space-y-1.5">
                     <div>
                       <Label htmlFor="user">Usuário </Label>
-                      <Input id="user" {...register("user")} required />
+                      <Input id="user" {...register("user")} required placeholder="Digite o usuário" />
                     </div>
 
                     <div>
                       <Label htmlFor="password">Senha <span className="text-xs text-muted-foreground"> / Max 12 caracteres</span></Label>
-                      <Input id="password" type="password" {...register("password")} required />
+                      <Input id="password" type="password" {...register("password")} required placeholder="Digite a senha" />
                     </div>
                   </div>
                 </div>

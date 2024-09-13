@@ -12,7 +12,7 @@ model contratos {
   cliente_logo   Bytes?
   treinamentos   Int?
   prazo          DateTime? @db.Date
-  cliente_numero String?   @db.VarChar(3)
+  cliente_numero String?   @db.VarChar(7)
   cliente_senha  String    @db.VarChar(12)
 }
 

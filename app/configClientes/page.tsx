@@ -129,16 +129,16 @@ export default function IndexPage() {
 
                   <div className="flex flex-col space-y-1.5">
                     <Label>Cliente</Label>
-                    <Input id="cliente" {...register("cliente")} required />
+                    <Input id="cliente" {...register("cliente")} required placeholder="Digite o nome do cliente" />
 
                     <Label>Senha do Cliente <span className="text-xs text-muted-foreground">/ Max 12 dígitos</span></Label>
-                    <Input id="cliente_senha" {...register("cliente_senha")} type="password" required maxLength={12} />
+                    <Input id="cliente_senha" {...register("cliente_senha")} type="password" required maxLength={12} placeholder="Digite a senha do cliente" />
 
-                    <Label>Número do Cliente <span className="text-xs text-muted-foreground">/ Max 3 dígitos</span></Label>
-                    <Input maxLength={3} id="cliente_numero" {...register("cliente_numero")} type="number" required />
+                    <Label>Número do Cliente <span className="text-xs text-muted-foreground">/ Max 7 dígitos</span></Label>
+                    <Input maxLength={7} id="cliente_numero" {...register("cliente_numero")} type="number" required placeholder="Digite o número do cliente" />
 
                     <Label>Quantidade de Treinamentos</Label>
-                    <Input maxLength={3} id="treinamentos" {...register("treinamentos")} type="number" required />
+                    <Input maxLength={3} id="treinamentos" {...register("treinamentos")} type="number" required placeholder="Digite a quantidade de treinamentos" />
 
                     <Label>Prazo</Label>
                     <Input id="prazo" {...register("prazo")} type="date" required />
