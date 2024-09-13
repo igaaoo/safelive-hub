@@ -20,6 +20,7 @@ import { Input } from "@/components/ui/input";
 
 import { ClientsTable } from "@/components/table/ClientsTable";
 import { clientsHeaders } from "@/components/table/Columns";
+import { Label } from "@/components/ui/label";
 
 export type ClientsType = {
   cliente: string;
@@ -127,16 +128,22 @@ export default function IndexPage() {
                 <div className="grid w-full items-center gap-4">
 
                   <div className="flex flex-col space-y-1.5">
-                    <Input id="cliente" {...register("cliente")} placeholder="Cliente" required />
+                    <Label>Cliente</Label>
+                    <Input id="cliente" {...register("cliente")} required />
 
-                    <Input id="cliente_senha" {...register("cliente_senha")} type="password" required placeholder="Senha / Max 12 Dígitos" maxLength={12} />
+                    <Label>Senha do Cliente <span className="text-xs text-muted-foreground">/ Max 12 dígitos</span></Label>
+                    <Input id="cliente_senha" {...register("cliente_senha")} type="password" required maxLength={12} />
 
-                    <Input maxLength={3} id="cliente_numero" {...register("cliente_numero")} type="number" required placeholder="Número do Cliente / Max 3 Dígitos" />
+                    <Label>Número do Cliente <span className="text-xs text-muted-foreground">/ Max 3 dígitos</span></Label>
+                    <Input maxLength={3} id="cliente_numero" {...register("cliente_numero")} type="number" required />
 
-                    <Input maxLength={3} id="treinamentos" {...register("treinamentos")} type="number" required placeholder="Treinamentos" />
+                    <Label>Quantidade de Treinamentos</Label>
+                    <Input maxLength={3} id="treinamentos" {...register("treinamentos")} type="number" required />
 
+                    <Label>Prazo</Label>
                     <Input id="prazo" {...register("prazo")} type="date" required />
 
+                    <Label>Logo do Cliente</Label>
                     <Input id="cliente_logo" required {...register("cliente_logo")} type="file" accept="image/png"
                       onChange={handleFileChange}
                     />
