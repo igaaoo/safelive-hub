@@ -13,10 +13,21 @@ interface DataContextProviderProps {
 function getBrasilDate(date: string) {
   if (date == null) return 'N/A';
 
-  const oracleDate = date.split('T')[0];
+  // Separar a data e a hora com base no "T"
+  const [oracleDate, oracleTime] = date.split('T');
+
+  // Formatar a data (YYYY-MM-DD para DD-MM-YYYY)
   const dateArray = oracleDate.split('-');
-  return `${dateArray[2]}-${dateArray[1]}-${dateArray[0]}`;
+  const formattedDate = `${dateArray[2]}-${dateArray[1]}-${dateArray[0]}`;
+
+  // Pegar apenas a hora e o minuto da parte da hora, removendo o "Z"
+  const timeArray = oracleTime.split(':');
+  const formattedTime = `${timeArray[0]}:${timeArray[1]}`;
+
+  // Retornar a data e hora formatadas
+  return `${formattedDate} ${formattedTime}`;
 }
+
 
 
 const DataContextProvider = ({ children }: DataContextProviderProps) => {

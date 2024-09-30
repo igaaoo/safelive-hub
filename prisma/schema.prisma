@@ -19,7 +19,7 @@ model contratos {
 model relatorio {
   cliente String?  @db.VarChar(100)
   aluno   Int
-  data    DateTime @db.Date
+  data    DateTime @db.DateTime(0)
   duracao String?  @db.VarChar(100)
   nota    Float    @db.Float
   id      Int      @id @default(autoincrement())
